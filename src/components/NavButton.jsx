@@ -5,12 +5,38 @@ import { useNavigate } from "react-router"
 
 
 
+const textVariants = {
+	rest: {
+		color: "white",
+		transition: { duration: 0.1 }
+	},
+	hover: {
+		color: "#F5B041",
+		transition: { duration: 0.1 }
+	}
+}
+
+const underlineVariants = {
+	rest: {
+		opacity: 0,
+		width: "0px",
+		transition: { duration: 0.1 }
+	},
+	hover: {
+		opacity: 1,
+		width: "100%",
+		transition: { duration: 0.1 }
+	}
+}
+
+
+
 const useStyles = makeStyles()((theme) => {
 	return {
 		root: {
 			position: "relative",
 
-			margin: theme.spacing(2),
+			margin: theme.spacing(3),
 			padding: 0,
 
 			fontWeight: 600,
@@ -23,6 +49,19 @@ const useStyles = makeStyles()((theme) => {
 
 			cursor: "pointer",
 		},
+		text: {
+			margin: 0,
+			padding: 0,
+		},
+		underline: {
+			position: "absolute",
+			left: 0,
+			bottom: 0,
+
+			height: "2px",
+			width: "100%",
+			backgroundColor: "#F5B041",
+		}
 	}
 })
 
@@ -34,8 +73,9 @@ const NavButton = ({ label, link }) => {
 
 
 	return (
-		<motion.button className={ classes.root } onClick={() => navigate(link)}>
-			<p>{ label }</p>
+		<motion.button className={ classes.root } initial="rest" animate="rest" whileHover="hover" onClick={() => navigate(link)}>
+			<motion.span className={ classes.text } variants={ textVariants }>{ label }</motion.span>
+			<motion.span className={ classes.underline } variants={ underlineVariants }></motion.span>
 		</motion.button>
 	)
 }
