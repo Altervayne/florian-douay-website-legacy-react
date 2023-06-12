@@ -2,6 +2,7 @@ import React from "react"
 import { makeStyles } from "tss-react/mui"
 import { motion } from "framer-motion"
 import { useNavigate } from "react-router"
+import { useTranslation } from 'react-i18next'
 
 
 
@@ -70,11 +71,12 @@ const useStyles = makeStyles()((theme) => {
 const NavButton = ({ label, link }) => {
 	const { classes } = useStyles()
     const navigate = useNavigate()
+	const { t } = useTranslation()
 
 
 	return (
 		<motion.button className={ classes.root } initial="rest" animate="rest" whileHover="hover" onClick={() => navigate(link)}>
-			<motion.span className={ classes.text } variants={ textVariants }>{ label }</motion.span>
+			<motion.span className={ classes.text } variants={ textVariants }>{t(label)}</motion.span>
 			<motion.span className={ classes.underline } variants={ underlineVariants }></motion.span>
 		</motion.button>
 	)
