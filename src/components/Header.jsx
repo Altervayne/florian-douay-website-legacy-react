@@ -1,6 +1,9 @@
 import React from "react"
 import { makeStyles } from "tss-react/mui"
-/* import { useNavigate } from "react-router" */
+import { motion } from "framer-motion"
+import { useNavigate } from "react-router"
+
+import NavButton from "./NavButton"
 
 
 
@@ -8,11 +11,10 @@ const useStyles = makeStyles()((theme) => {
 	return {
 		root: {
 			display: "flex",
-			justifyContent: "center",
+			justifyContent: "space-between",
 			alignContent: "center",
 
 			width: "100%",
-			padding: "5px 0",
             zIndex: 4,
 
 			boxShadow: "0px 0px 10px 0px rgba(0, 0, 0, 0.37)",
@@ -20,13 +22,19 @@ const useStyles = makeStyles()((theme) => {
             backdropFilter: "blur(20px)",
 
 			[theme.breakpoints.down('sm')]: {
+				padding: "0 10vw",
+
 				height: theme.spacing(14),	
 			},
 			[theme.breakpoints.up('sm')]: {
+				padding: "0 5vw",
+
 				height: theme.spacing(12),	
 			},
 			[theme.breakpoints.up('md')]: {
-				height: theme.spacing(16),	
+				padding: "0 13vw",
+
+				height: theme.spacing(16),
 			}
 		},
 		name: {
@@ -36,7 +44,8 @@ const useStyles = makeStyles()((theme) => {
 			fontSize: theme.typography.pxToRem(24)
 		},
 		nav: {
-
+			display: "flex",
+			alignItems: "center",
 		},
 	}
 })
@@ -45,7 +54,7 @@ const useStyles = makeStyles()((theme) => {
 
 const Header = () => {
 	const { classes } = useStyles()
-    /* const navigate = useNavigate() */
+    const navigate = useNavigate()
 
 
 	return (
@@ -53,8 +62,10 @@ const Header = () => {
 			<h1 className={ classes.name }>Florian DOUAY</h1>
 
 			<nav className={ classes.nav }>
-				<button className={ classes.navLink }>TEST</button>
-				<button className={ classes.navLink }>TEST</button>
+				<NavButton label="Home" link="/" />
+				<NavButton label="Résumé" link="/cv" />
+				<NavButton label="Portfolio" link="/portfolio" />
+
 			</nav>
 		</header>
 	)
