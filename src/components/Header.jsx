@@ -1,7 +1,5 @@
 import React from "react"
 import { makeStyles } from "tss-react/mui"
-import { motion } from "framer-motion"
-import { useNavigate } from "react-router"
 
 import NavButton from "./NavButton"
 
@@ -54,7 +52,6 @@ const useStyles = makeStyles()((theme) => {
 
 const Header = () => {
 	const { classes } = useStyles()
-    const navigate = useNavigate()
 
 
 	return (
