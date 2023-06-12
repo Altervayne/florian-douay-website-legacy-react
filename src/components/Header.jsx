@@ -62,9 +62,9 @@ const Header = () => {
 			<h1 className={ classes.name }>Florian DOUAY</h1>
 
 			<nav className={ classes.nav }>
-				<NavButton label="Home" link="/" />
-				<NavButton label="Résumé" link="/cv" />
-				<NavButton label="Portfolio" link="/portfolio" />
+				<NavButton label="NavHome" link="/" />
+				<NavButton label="NavRésumé" link="/cv" />
+				<NavButton label="NavPortfolio" link="/portfolio" />
 
 			</nav>
 		</header>
