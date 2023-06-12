@@ -1,6 +1,5 @@
 import React from "react"
 import { makeStyles } from "tss-react/mui"
-import Header from "./components/Header"
 import ReactRoutes from "./Routes.jsx"
 
 
@@ -15,7 +14,8 @@ const useStyles = makeStyles()((theme) => {
 			width: "100%",
 			height: "100vh",
 
-			backgroundColor: "#1B2432",
+			backgroundColor: "black",
+			background: "linear-gradient(235deg, hsla(284, 95%, 8%, 1) 0%, #0F131E 100%)"
 		},
 	}
 })
@@ -27,7 +27,6 @@ const App = () => {
 
 	return (
 		<div className={classes.root}>
-			<Header />
 			<ReactRoutes />
 		</div>
 	)
