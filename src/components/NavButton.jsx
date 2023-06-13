@@ -8,11 +8,11 @@ import { useTranslation } from 'react-i18next'
 
 const textVariants = {
 	rest: {
-		color: "white",
+		color: "rgba(255, 255, 255, 1)",
 		transition: { duration: 0.1 }
 	},
 	hover: {
-		color: "#F5B041",
+		color: "rgba(245, 176, 65, 1)",
 		transition: { duration: 0.1 }
 	}
 }

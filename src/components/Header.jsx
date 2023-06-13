@@ -17,7 +17,7 @@ const useStyles = makeStyles()((theme) => {
 
 			boxShadow: "0px 0px 10px 0px rgba(0, 0, 0, 0.37)",
             background: "linear-gradient(275deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.03))",
-            backdropFilter: "blur(20px)",
+            backdropFilter: "blur(2px)",
 
 			[theme.breakpoints.down('sm')]: {
 				padding: "0 10vw",
