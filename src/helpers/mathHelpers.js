@@ -4,4 +4,4 @@ function getRandomInRange(min, max) {
 
 
 
-export default getRandomInRange()
+export default getRandomInRange
