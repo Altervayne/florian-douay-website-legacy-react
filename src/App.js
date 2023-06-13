@@ -7,11 +7,15 @@ import ReactRoutes from "./Routes.jsx"
 const useStyles = makeStyles()((theme) => {
 	return {
 		root: {
+			position: "fixed",
+			top: 0,
+			left: 0,
+
 			display: "flex",
 			flexDirection: "column",
 			alignItems: "center",
 
-			width: "100%",
+			width: "100vw",
 			height: "100vh",
 
 			backgroundColor: "black",
