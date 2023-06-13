@@ -21,9 +21,9 @@ const addCircle = (canvas, circles, x, y) => {
         x: x,
         y: y,
         radius: radius,
-        dx: Math.random() * 4 - 2,
-        dy: Math.random() * 4 - 2,
-        color: `rgba(255, 255, 255, ${getRandomInRange(0.3, 0.8)})`,
+        dx: Math.random() * 2 - 1,
+        dy: Math.random() * 2 - 1,
+        color: `rgba(255, 255, 255, ${getRandomInRange(0.1, 0.5)})`,
         deleted: false
     }
 

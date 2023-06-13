@@ -50,7 +50,7 @@ function canvasAnimation(canvas, ctx) {
     /* Initializing animate function then starting animation */
     function animate() {
         requestAnimationFrame(animate)
-        drawCircles()
+        drawCircles(ctx, canvas, circles)
     }
 
     animate()
@@ -58,4 +58,4 @@ function canvasAnimation(canvas, ctx) {
 
 
 
-export default canvasAnimation()
+export default canvasAnimation

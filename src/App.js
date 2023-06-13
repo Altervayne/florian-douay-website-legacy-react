@@ -1,6 +1,7 @@
 import React from "react"
 import { makeStyles } from "tss-react/mui"
 import ReactRoutes from "./Routes.jsx"
+import AnimationCanvas from "./components/AnimationCanvas.jsx"
 
 
 
@@ -8,6 +9,7 @@ const useStyles = makeStyles()((theme) => {
 	return {
 		root: {
 			position: "fixed",
+			zIndex: 0,
 			top: 0,
 			left: 0,
 
@@ -31,6 +33,7 @@ const App = () => {
 
 	return (
 		<div className={classes.root}>
+			<AnimationCanvas />
 			<ReactRoutes />
 		</div>
 	)
