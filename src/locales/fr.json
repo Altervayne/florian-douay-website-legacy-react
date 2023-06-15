@@ -1,5 +1,7 @@
 {
-    "NavHome": "Page d'Accueil",
-    "NavRésumé": "CV",
-    "NavPortfolio": "Portfolio"
+    "navHome": "Page d'Accueil",
+    "navRésumé": "CV",
+    "navPortfolio": "Portfolio",
+
+    "welcomeTitle": "Bonjour, je m'appelle"
 }

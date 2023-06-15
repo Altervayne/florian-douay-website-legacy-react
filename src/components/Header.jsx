@@ -12,6 +12,8 @@ const useStyles = makeStyles()((theme) => {
 			justifyContent: "space-between",
 			alignContent: "center",
 
+			position: "relative",
+
 			width: "100%",
             zIndex: 4,
 
@@ -59,9 +61,9 @@ const Header = () => {
 			<h1 className={ classes.name }>Florian DOUAY</h1>
 
 			<nav className={ classes.nav }>
-				<NavButton label="NavHome" link="/" />
-				<NavButton label="NavRésumé" link="/cv" />
-				<NavButton label="NavPortfolio" link="/portfolio" />
+				<NavButton label="navHome" link="/" />
+				<NavButton label="navRésumé" link="/cv" />
+				<NavButton label="navPortfolio" link="/portfolio" />
 
 			</nav>
 		</header>
