@@ -3,5 +3,7 @@
     "navRésumé": "CV",
     "navPortfolio": "Portfolio",
 
-    "welcomeTitle": "Bonjour, je m'appelle"
+    "welcomeNameTitle": "Bonjour, je m'appelle",
+    "welcomeJobTitleStart": "Je suis un développeur web",
+    "welcomeJobTitleEnd": ""
 }
