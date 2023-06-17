@@ -16,7 +16,7 @@ const useStyles = makeStyles()((theme) => {
             zIndex: 4,
 
 			boxShadow: "0px 0px 10px 0px rgba(0, 0, 0, 0.37)",
-            background: "linear-gradient(275deg, rgba(50, 50, 50, 0.1), rgba(50, 50, 50, 0.03))",
+            background: "linear-gradient(275deg, rgba(10, 10, 10, 0.7), rgba(10, 10, 10, 0.3))",
             backdropFilter: "blur(2px)",
 
 			[theme.breakpoints.down('sm')]: {
