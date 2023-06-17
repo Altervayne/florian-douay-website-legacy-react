@@ -3,6 +3,7 @@ import { makeStyles } from "tss-react/mui"
 /* import { useNavigate } from "react-router" */
 
 import Header from "../components/Header"
+import Footer from "../components/Footer"
 import HomeTitle from "../components/HomeTitle"
 
 
@@ -13,6 +14,7 @@ const useStyles = makeStyles()((theme) => {
 			display: "flex",
 			flexDirection: "column",
 			alignItems: "center",
+			justifyContent: "space-between",
 
 			width: "100%",
 			height: "100%",
@@ -31,6 +33,7 @@ const Home = () => {
     return 	<div className={ classes.root }>
 				<Header />
 				<HomeTitle />
+				<Footer />
 			</div>
 }
 
