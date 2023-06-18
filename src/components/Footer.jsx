@@ -1,6 +1,7 @@
 import React from "react"
 import { makeStyles } from "tss-react/mui"
 import { useTranslation } from 'react-i18next'
+import { motion } from "framer-motion"
 
 import { BsLinkedin, BsGithub } from "react-icons/bs"
 
@@ -58,12 +59,12 @@ const useStyles = makeStyles()((theme) => {
 			margin: "0",
 
 			cursor: "pointer",
+
+			color: "rgba(255, 255, 255, 1)"
 		},
 		socialsIcon: {
 			height: "100%",
 			width: "100%",
-
-			color: "white"
 		},
 		copyright: {
 			color: "white",
@@ -76,6 +77,25 @@ const useStyles = makeStyles()((theme) => {
 
 
 
+const socialsVariants = {
+	rest: {
+		color: "rgba(255, 255, 255, 1)",
+		scale: 1,
+		transition: {
+			duration: 0.1
+		}
+	},
+	hover: {
+		color: "rgba(245, 176, 65, 1)",
+		scale: 1.2,
+		transition: {
+			duration: 0.1
+		}
+	}
+}
+
+
+
 const Footer = () => {
 	const { classes } = useStyles()
 	const { t } = useTranslation()
@@ -84,12 +104,22 @@ const Footer = () => {
 	return (
 		<footer className={ classes.root }>
 			<div className={ classes.socialsRoot }>
-				<button className={ classes.socialsButton }>
+				<motion.button className={ classes.socialsButton }
+					variants={ socialsVariants }
+					initial={ "rest" }
+					animate={ "rest" }
+					whileHover={ "hover" }
+				>
 					<BsGithub className={ classes.socialsIcon } />
-				</button>
-				<button className={ classes.socialsButton }>
+				</motion.button>
+				<motion.button className={ classes.socialsButton }
+					variants={ socialsVariants }
+					initial={ "rest" }
+					animate={ "rest" }
+					whileHover={ "hover" }
+				>
 					<BsLinkedin className={ classes.socialsIcon } />
-				</button>
+				</motion.button>
 
 
 			</div>
