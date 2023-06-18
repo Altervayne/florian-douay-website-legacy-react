@@ -104,22 +104,24 @@ const Footer = () => {
 	return (
 		<footer className={ classes.root }>
 			<div className={ classes.socialsRoot }>
-				<motion.button className={ classes.socialsButton }
+				<motion.a className={ classes.socialsButton }
+					href={"https://github.com/Altervayne/"}
 					variants={ socialsVariants }
 					initial={ "rest" }
 					animate={ "rest" }
 					whileHover={ "hover" }
 				>
-					<BsGithub className={ classes.socialsIcon } />
-				</motion.button>
-				<motion.button className={ classes.socialsButton }
+					<BsGithub className={ classes.socialsIcon }/>
+				</motion.a>
+				<motion.a className={ classes.socialsButton }
+					href={"https://www.linkedin.com/in/florian-douay/"}
 					variants={ socialsVariants }
 					initial={ "rest" }
 					animate={ "rest" }
 					whileHover={ "hover" }
 				>
 					<BsLinkedin className={ classes.socialsIcon } />
-				</motion.button>
+				</motion.a>
 
 
 			</div>
