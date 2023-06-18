@@ -30,7 +30,6 @@ const useStyles = makeStyles()((theme) => {
 			},
 			[theme.breakpoints.up('md')]: {
 				marginLeft: "13vw",
-                marginTop: "20vh",
 			}
         },
         name: {
