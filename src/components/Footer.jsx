@@ -1,5 +1,6 @@
 import React from "react"
 import { makeStyles } from "tss-react/mui"
+import { useTranslation } from 'react-i18next'
 
 
 
@@ -7,8 +8,9 @@ const useStyles = makeStyles()((theme) => {
 	return {
 		root: {
 			display: "flex",
-			justifyContent: "space-between",
-			alignContent: "center",
+			flexDirection: "column",
+			justifyContent: "center",
+			alignItems: "center",
 
 			position: "relative",
 
@@ -35,6 +37,9 @@ const useStyles = makeStyles()((theme) => {
 				height: theme.spacing(16),
 			}
 		},
+		copyright: {
+			color: "white",
+		},
 	}
 })
 
@@ -42,10 +47,12 @@ const useStyles = makeStyles()((theme) => {
 
 const Footer = () => {
 	const { classes } = useStyles()
+	const { t } = useTranslation()
 
 
 	return (
 		<footer className={ classes.root }>
+			<p className={ classes.copyright }>{t("copyright")}</p>
 		</footer>
 	)
 }
