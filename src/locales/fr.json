@@ -5,5 +5,7 @@
 
     "welcomeNameTitle": "Bonjour, je m'appelle",
     "welcomeJobTitleStart": "Je suis un développeur web",
-    "welcomeJobTitleEnd": ""
+    "welcomeJobTitleEnd": "",
+
+    "copyright": "Copyright © 2023 Florian Douay. Tous droits réservés."
 }

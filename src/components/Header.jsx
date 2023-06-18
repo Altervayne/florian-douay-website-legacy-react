@@ -10,7 +10,7 @@ const useStyles = makeStyles()((theme) => {
 		root: {
 			display: "flex",
 			justifyContent: "space-between",
-			alignContent: "center",
+			alignItems: "center",
 
 			position: "relative",
 
