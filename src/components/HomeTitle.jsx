@@ -1,7 +1,52 @@
 import React from "react"
 import { makeStyles } from "tss-react/mui"
+import { motion } from "framer-motion"
 
 import { useTranslation } from "react-i18next"
+
+
+
+function getVariant(isFirstPart, previousStringsLength, delayModifier) {
+    if(isFirstPart) {
+        return {
+            hidden: {
+                opacity: 0,
+                y: 50,
+            },
+            visible: {
+                opacity: 1,
+                y: 0,
+            }
+        }
+    }
+
+    const delay = (previousStringsLength * 0.03) + delayModifier
+
+    return {
+        hidden: {
+            opacity: 0,
+            y: 50,
+        },
+        visible: {
+            opacity: 1,
+            y: 0,
+            transition: {
+                delay: delay,
+            }
+        }
+    }
+}
+
+const sentenceVariant = {
+    hidden: { opacity: 1 },
+    visible: {
+        opacity: 1,
+        transition: {
+            delay: 0.1,
+            staggerChildren: 0.03,
+        }
+    }
+}
 
 
 
@@ -85,13 +130,65 @@ const HomeTitle = () => {
     const { t } = useTranslation()
 
 
+
 	return (
 		<div className={ classes.root }>
             <h2 className={ classes.nameTitle }>
-                {t("welcomeNameTitle")}
-                <span className={ classes.name }> Florian Douay</span>
+
+                    <motion.span
+                        variants={ sentenceVariant }
+                        initial="hidden"
+                        animate="visible"
+                    >
+
+                        {t("welcomeNameTitle").split(",")[0].split("").map((char, index) => {
+                            return (
+                                <motion.span key={ char + "-" + index } variants={ getVariant(true, 0, 0) }>
+                                    {char}
+                                </motion.span>
+                            )
+                        })}
+                        <motion.span variants={ getVariant(true, 0, 0) }>
+                            ,
+                        </motion.span>
+
+                    </motion.span>
+                    <motion.span
+                        variants={ sentenceVariant }
+                        initial="hidden"
+                        animate="visible"
+                    >
+
+                        {t("welcomeNameTitle").split(",")[1].split("").map((char, index) => {
+                            return (
+                                <motion.span key={ char + "-" + index } variants={ getVariant(false, (t("welcomeNameTitle").split(",")[0].split("").length + 1), (index * 0.03 + 0.3)) }>
+                                    {char}
+                                </motion.span>
+                            )
+                        })}
+
+                    </motion.span>
+                    <motion.span className={ classes.name }
+                        variants={ sentenceVariant }
+                        initial="hidden"
+                        animate="visible"
+                    >
+
+                        {" Florian Douay".split("").map((char, index) => {
+                            return (
+                                <motion.span key={ char + "-" + index } variants={ getVariant(false, (t("welcomeNameTitle").split("").length), (index * 0.03 + 0.3)) }>
+                                    {char}
+                                </motion.span>
+                            )
+                        })}
+
+                    </motion.span>
+
             </h2>
-            <h2 className={ classes.jobTitle }>
+            <h2 className={ classes.jobTitle }
+                /* variants={  }
+                initial="hidden"
+                animate="visible" */>
                 {t("welcomeJobTitleStart")}
 
                 <div className={ classes.jobSpecializationRoot }>
