@@ -1,4 +1,4 @@
-import React, { useEffect } from "react"
+import React from "react"
 import { makeStyles } from "tss-react/mui"
 import { motion } from "framer-motion"
 
@@ -6,42 +6,45 @@ import { useTranslation } from "react-i18next"
 
 
 
-function getVariant(isFirst, previousStrings) {
-    if(isFirst) {
+function getVariant(isFirstPart, previousStringsLength, delayModifier) {
+    if(isFirstPart) {
         return {
-            hidden: { opacity: 1 },
+            hidden: {
+                opacity: 0,
+                y: 50,
+            },
             visible: {
                 opacity: 1,
-                transition: {
-                    delay: 0.1,
-                    staggerChildren: 0.02,
-                }
+                y: 0,
             }
         }
     }
 
-    const delay = (previousStrings.split("").length * 0.02) + 0.1
+    const delay = (previousStringsLength * 0.03) + delayModifier
 
     return {
-        hidden: { opacity: 1 },
+        hidden: {
+            opacity: 0,
+            y: 50,
+        },
         visible: {
             opacity: 1,
+            y: 0,
             transition: {
                 delay: delay,
-                staggerChildren: 0.02,
             }
         }
     }
 }
 
-const letterVariant = {
-    hidden: {
-        opacity: 0,
-        y: 50,
-    },
+const sentenceVariant = {
+    hidden: { opacity: 1 },
     visible: {
         opacity: 1,
-        y: 0,
+        transition: {
+            delay: 0.1,
+            staggerChildren: 0.03,
+        }
     }
 }
 
@@ -126,34 +129,53 @@ const HomeTitle = () => {
 	const { classes } = useStyles()
     const { t } = useTranslation()
 
-    const firstSentenceVariant = getVariant(true, null)
-    const secondSentenceVariant = getVariant(false, t("welcomeNameTitle") + " Florian Douay")
-
 
 
 	return (
 		<div className={ classes.root }>
-            <motion.h2 className={ classes.nameTitle }
-                variants={ firstSentenceVariant }
-                initial="hidden"
-                animate="visible"
-            >
+            <h2 className={ classes.nameTitle }>
 
-                    {t("welcomeNameTitle").split("").map((char, index) => {
-                        return (
-                            <motion.span key={ char + "-" + index } variants={ letterVariant }>
-                                {char}
-                            </motion.span>
-                        )
-                    })}  
+                    <motion.span
+                        variants={ sentenceVariant }
+                        initial="hidden"
+                        animate="visible"
+                    >
+
+                        {t("welcomeNameTitle").split(",")[0].split("").map((char, index) => {
+                            return (
+                                <motion.span key={ char + "-" + index } variants={ getVariant(true, 0, 0) }>
+                                    {char}
+                                </motion.span>
+                            )
+                        })}
+                        <motion.span variants={ getVariant(true, 0, 0) }>
+                            ,
+                        </motion.span>
+
+                    </motion.span>
+                    <motion.span
+                        variants={ sentenceVariant }
+                        initial="hidden"
+                        animate="visible"
+                    >
+
+                        {t("welcomeNameTitle").split(",")[1].split("").map((char, index) => {
+                            return (
+                                <motion.span key={ char + "-" + index } variants={ getVariant(false, (t("welcomeNameTitle").split(",")[0].split("").length + 1), (index * 0.03 + 0.3)) }>
+                                    {char}
+                                </motion.span>
+                            )
+                        })}
+
+                    </motion.span>
 
 
                 <span className={ classes.name }> Florian Douay</span>
-            </motion.h2>
+            </h2>
             <h2 className={ classes.jobTitle }
-                variants={ secondSentenceVariant }
+                /* variants={  }
                 initial="hidden"
-                animate="visible">
+                animate="visible" */>
                 {t("welcomeJobTitleStart")}
 
                 <div className={ classes.jobSpecializationRoot }>
