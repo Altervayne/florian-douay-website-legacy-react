@@ -1,4 +1,4 @@
-import { addCircle, drawCircles } from './animationLogic'
+import { addCircle, drawCircles } from './canvasAnimationLogic'
 
 
 
