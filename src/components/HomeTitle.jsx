@@ -168,9 +168,22 @@ const HomeTitle = () => {
                         })}
 
                     </motion.span>
+                    <motion.span className={ classes.name }
+                        variants={ sentenceVariant }
+                        initial="hidden"
+                        animate="visible"
+                    >
 
+                        {" Florian Douay".split("").map((char, index) => {
+                            return (
+                                <motion.span key={ char + "-" + index } variants={ getVariant(false, (t("welcomeNameTitle").split("").length), (index * 0.03 + 0.3)) }>
+                                    {char}
+                                </motion.span>
+                            )
+                        })}
 
-                <span className={ classes.name }> Florian Douay</span>
+                    </motion.span>
+
             </h2>
             <h2 className={ classes.jobTitle }
                 /* variants={  }
