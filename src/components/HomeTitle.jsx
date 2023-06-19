@@ -142,33 +142,36 @@ const HomeTitle = () => {
                         animate="visible"
                     >
 
-                        {t("welcomeNameTitle").split(",")[0].split("").map((char, index) => {
-                            return (
-                                <motion.span key={ char + "-" + index } variants={ getVariant(true, 0, 0) }>
-                                    {char}
-                                </motion.span>
-                            )
+                        {t("welcomeNameTitle").split(",").map((sentence, index) => {
+
+                            if(index === 0) {
+                                const currentSentenceArray = sentence.split("")
+                                currentSentenceArray.push(",")
+                                return currentSentenceArray.map((char, letterIndex) => {
+                                            return (
+                                                <motion.span key={ char + "-" + letterIndex } variants={ getVariant(true, 0, 0) }>
+                                                    {char}
+                                                </motion.span>
+                                            )
+                                        })
+                            } else {
+                                const currentSentenceArray = sentence.split("")
+                                const previousLength = t("welcomeNameTitle").split(",")[0].split("").length + 1
+
+                                return currentSentenceArray.map((char, letterIndex) => {
+                                            return (
+                                                <motion.span key={ char + "-" + letterIndex } variants={ getVariant(false, previousLength, (letterIndex * 0.03 + 0.3)) }>
+                                                    {char}
+                                                </motion.span>
+                                            )
+                                        })
+                            }
+
                         })}
-                        <motion.span variants={ getVariant(true, 0, 0) }>
-                            ,
-                        </motion.span>
 
                     </motion.span>
-                    <motion.span
-                        variants={ sentenceVariant }
-                        initial="hidden"
-                        animate="visible"
-                    >
 
-                        {t("welcomeNameTitle").split(",")[1].split("").map((char, index) => {
-                            return (
-                                <motion.span key={ char + "-" + index } variants={ getVariant(false, (t("welcomeNameTitle").split(",")[0].split("").length + 1), (index * 0.03 + 0.3)) }>
-                                    {char}
-                                </motion.span>
-                            )
-                        })}
 
-                    </motion.span>
                     <motion.span className={ classes.name }
                         variants={ sentenceVariant }
                         initial="hidden"
@@ -189,11 +192,8 @@ const HomeTitle = () => {
 
 
 
-            <h2 className={ classes.jobTitle }
-                /* variants={  }
-                initial="hidden"
-                animate="visible" */>
-                {t("welcomeJobTitleStart")}
+            <h2 className={ classes.jobTitle }>
+                { t("welcomeJobTitleStart") && <span>{t("welcomeJobTitleStart")}</span> }
 
                 <div className={ classes.jobSpecializationRoot }>
                     <p className={ classes.jobSpecializationSecondary }>Front-end</p>
@@ -201,7 +201,7 @@ const HomeTitle = () => {
                     <p className={ classes.jobSpecializationSecondary }>Back-end</p>
                 </div>
 
-                {t("welcomeJobTitleEnd")}
+                { t("welcomeJobTitleEnd") && <span>{t("welcomeJobTitleEnd")}</span> }
             </h2>
             
         </div>
