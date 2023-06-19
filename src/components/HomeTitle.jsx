@@ -172,38 +172,6 @@ const HomeTitle = () => {
                     </motion.span>
 
 
-
-                    <motion.span
-                        variants={ sentenceVariant }
-                        initial="hidden"
-                        animate="visible"
-                    >
-
-                        {t("welcomeNameTitle").split(",")[0].split("").map((char, index) => {
-                            return (
-                                <motion.span key={ char + "-" + index } variants={ getVariant(true, 0, 0) }>
-                                    {char}
-                                </motion.span>
-                            )
-                        })}
-                        
-
-                    </motion.span>
-                    <motion.span
-                        variants={ sentenceVariant }
-                        initial="hidden"
-                        animate="visible"
-                    >
-
-                        {t("welcomeNameTitle").split(",")[1].split("").map((char, index) => {
-                            return (
-                                <motion.span key={ char + "-" + index } variants={ getVariant(false, (t("welcomeNameTitle").split(",")[0].split("").length + 1), (index * 0.03 + 0.3)) }>
-                                    {char}
-                                </motion.span>
-                            )
-                        })}
-
-                    </motion.span>
                     <motion.span className={ classes.name }
                         variants={ sentenceVariant }
                         initial="hidden"
@@ -224,11 +192,8 @@ const HomeTitle = () => {
 
 
 
-            <h2 className={ classes.jobTitle }
-                /* variants={  }
-                initial="hidden"
-                animate="visible" */>
-                {t("welcomeJobTitleStart")}
+            <h2 className={ classes.jobTitle }>
+                { t("welcomeJobTitleStart") && <span>{t("welcomeJobTitleStart")}</span> }
 
                 <div className={ classes.jobSpecializationRoot }>
                     <p className={ classes.jobSpecializationSecondary }>Front-end</p>
@@ -236,7 +201,7 @@ const HomeTitle = () => {
                     <p className={ classes.jobSpecializationSecondary }>Back-end</p>
                 </div>
 
-                {t("welcomeJobTitleEnd")}
+                { t("welcomeJobTitleEnd") && <span>{t("welcomeJobTitleEnd")}</span> }
             </h2>
             
         </div>
