@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect } from "react"
 import { makeStyles } from "tss-react/mui"
 import { motion } from "framer-motion"
 
@@ -20,7 +20,7 @@ function getVariant(isFirst, previousStrings) {
         }
     }
 
-    const delay = (previousStrings.length() * 0.02) + 0.1
+    const delay = (previousStrings.split("").length * 0.02) + 0.1
 
     return {
         hidden: { opacity: 1 },
@@ -126,17 +126,20 @@ const HomeTitle = () => {
 	const { classes } = useStyles()
     const { t } = useTranslation()
 
+    const firstSentenceVariant = getVariant(true, null)
+    const secondSentenceVariant = getVariant(false, t("welcomeNameTitle") + " Florian Douay")
+
 
 
 	return (
 		<div className={ classes.root }>
-            <h2 className={ classes.nameTitle }
-                variants={ getVariant(true, null) }
+            <motion.h2 className={ classes.nameTitle }
+                variants={ firstSentenceVariant }
                 initial="hidden"
                 animate="visible"
             >
-                
-                {t("welcomeNameTitle").split("").map((char, index) => {
+
+                    {t("welcomeNameTitle").split("").map((char, index) => {
                         return (
                             <motion.span key={ char + "-" + index } variants={ letterVariant }>
                                 {char}
@@ -146,9 +149,9 @@ const HomeTitle = () => {
 
 
                 <span className={ classes.name }> Florian Douay</span>
-            </h2>
+            </motion.h2>
             <h2 className={ classes.jobTitle }
-                variants={ getVariant(false, (t("welcomeNameTitle") + " Florian Douay")) }
+                variants={ secondSentenceVariant }
                 initial="hidden"
                 animate="visible">
                 {t("welcomeJobTitleStart")}
