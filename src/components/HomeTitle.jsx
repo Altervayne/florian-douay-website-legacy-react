@@ -1,7 +1,49 @@
 import React from "react"
 import { makeStyles } from "tss-react/mui"
+import { motion } from "framer-motion"
 
 import { useTranslation } from "react-i18next"
+
+
+
+function getVariant(isFirst, previousStrings) {
+    if(isFirst) {
+        return {
+            hidden: { opacity: 1 },
+            visible: {
+                opacity: 1,
+                transition: {
+                    delay: 0.1,
+                    staggerChildren: 0.02,
+                }
+            }
+        }
+    }
+
+    const delay = (previousStrings.length() * 0.02) + 0.1
+
+    return {
+        hidden: { opacity: 1 },
+        visible: {
+            opacity: 1,
+            transition: {
+                delay: delay,
+                staggerChildren: 0.02,
+            }
+        }
+    }
+}
+
+const letterVariant = {
+    hidden: {
+        opacity: 0,
+        y: 50,
+    },
+    visible: {
+        opacity: 1,
+        y: 0,
+    }
+}
 
 
 
@@ -85,13 +127,30 @@ const HomeTitle = () => {
     const { t } = useTranslation()
 
 
+
 	return (
 		<div className={ classes.root }>
-            <h2 className={ classes.nameTitle }>
-                {t("welcomeNameTitle")}
+            <h2 className={ classes.nameTitle }
+                variants={ getVariant(true, null) }
+                initial="hidden"
+                animate="visible"
+            >
+                
+                {t("welcomeNameTitle").split("").map((char, index) => {
+                        return (
+                            <motion.span key={ char + "-" + index } variants={ letterVariant }>
+                                {char}
+                            </motion.span>
+                        )
+                    })}  
+
+
                 <span className={ classes.name }> Florian Douay</span>
             </h2>
-            <h2 className={ classes.jobTitle }>
+            <h2 className={ classes.jobTitle }
+                variants={ getVariant(false, (t("welcomeNameTitle") + " Florian Douay")) }
+                initial="hidden"
+                animate="visible">
                 {t("welcomeJobTitleStart")}
 
                 <div className={ classes.jobSpecializationRoot }>

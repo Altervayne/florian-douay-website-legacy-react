@@ -2,6 +2,10 @@ import React from "react"
 import { makeStyles } from "tss-react/mui"
 import { motion } from "framer-motion"
 
+
+
+const notFoundText = "La page que vous cherchez est introuvable"
+
 const numberVariants = {
     hidden: {
         opacity: 0,
@@ -18,9 +22,7 @@ const numberVariants = {
     },
 }
 
-const notFoundText = "La page que vous cherchez est introuvable"
-
-const sentence = {
+const sentenceVariant = {
     hidden: { opacity: 1 },
     visible: {
         opacity: 1,
@@ -31,7 +33,7 @@ const sentence = {
     }
 }
 
-const letter = {
+const letterVariant = {
     hidden: {
         opacity: 0,
         y: 50,
@@ -41,6 +43,8 @@ const letter = {
         y: 0,
     }
 }
+
+
 
 const useStyles = makeStyles()((theme) => {
 	return {
@@ -87,6 +91,8 @@ const useStyles = makeStyles()((theme) => {
 	}
 })
 
+
+
 const PageNotFound = () => {
     const { classes } = useStyles()
 
@@ -103,13 +109,13 @@ const PageNotFound = () => {
 
                 <motion.h2
                     className={ classes.text }
-                    variants={ sentence }
+                    variants={ sentenceVariant }
                     initial="hidden"
                     animate="visible"
                 >
                     {notFoundText.split("").map((char, index) => {
                         return (
-                            <motion.span key={ char + "-" + index } variants={ letter }>
+                            <motion.span key={ char + "-" + index } variants={ letterVariant }>
                                 {char}
                             </motion.span>
                         )
@@ -128,5 +134,7 @@ const PageNotFound = () => {
                 </motion.div>
             </div>
 }
+
+
 
 export default PageNotFound
