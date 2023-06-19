@@ -142,6 +142,43 @@ const HomeTitle = () => {
                         animate="visible"
                     >
 
+                        {t("welcomeNameTitle").split(",").map((sentence, index) => {
+
+                            if(index === 0) {
+                                const currentSentenceArray = sentence.split("")
+                                currentSentenceArray.push(",")
+                                return currentSentenceArray.map((char, letterIndex) => {
+                                            return (
+                                                <motion.span key={ char + "-" + letterIndex } variants={ getVariant(true, 0, 0) }>
+                                                    {char}
+                                                </motion.span>
+                                            )
+                                        })
+                            } else {
+                                const currentSentenceArray = sentence.split("")
+                                const previousLength = t("welcomeNameTitle").split(",")[0].split("").length + 1
+
+                                return currentSentenceArray.map((char, letterIndex) => {
+                                            return (
+                                                <motion.span key={ char + "-" + letterIndex } variants={ getVariant(false, previousLength, (letterIndex * 0.03 + 0.3)) }>
+                                                    {char}
+                                                </motion.span>
+                                            )
+                                        })
+                            }
+
+                        })}
+
+                    </motion.span>
+
+
+
+                    <motion.span
+                        variants={ sentenceVariant }
+                        initial="hidden"
+                        animate="visible"
+                    >
+
                         {t("welcomeNameTitle").split(",")[0].split("").map((char, index) => {
                             return (
                                 <motion.span key={ char + "-" + index } variants={ getVariant(true, 0, 0) }>
@@ -149,9 +186,7 @@ const HomeTitle = () => {
                                 </motion.span>
                             )
                         })}
-                        <motion.span variants={ getVariant(true, 0, 0) }>
-                            ,
-                        </motion.span>
+                        
 
                     </motion.span>
                     <motion.span
