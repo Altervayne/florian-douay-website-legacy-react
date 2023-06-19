@@ -133,6 +133,7 @@ const HomeTitle = () => {
 
 	return (
 		<div className={ classes.root }>
+
             <h2 className={ classes.nameTitle }>
 
                     <motion.span
@@ -185,6 +186,9 @@ const HomeTitle = () => {
                     </motion.span>
 
             </h2>
+
+
+
             <h2 className={ classes.jobTitle }
                 /* variants={  }
                 initial="hidden"
@@ -199,6 +203,7 @@ const HomeTitle = () => {
 
                 {t("welcomeJobTitleEnd")}
             </h2>
+            
         </div>
 	)
 }
