@@ -2,6 +2,7 @@ import React from "react"
 import { makeStyles } from "tss-react/mui"
 
 import NavButton from "./NavButton"
+import ContactButton from "./ContactButton"
 
 
 
@@ -64,6 +65,8 @@ const Header = () => {
 				<NavButton label="navHome" link="/" />
 				<NavButton label="navRésumé" link="/cv" />
 				<NavButton label="navPortfolio" link="/portfolio" />
+
+				<ContactButton />
 
 			</nav>
 		</header>
