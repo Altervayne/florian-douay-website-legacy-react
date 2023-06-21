@@ -3,6 +3,8 @@ import { makeStyles } from "tss-react/mui"
 import { motion } from "framer-motion"
 import { useTranslation } from 'react-i18next'
 
+import { BsLinkedin, BsGithub, BsAt } from "react-icons/bs"
+
 
 
 const textVariants = {
@@ -61,9 +63,38 @@ const useStyles = makeStyles()((theme) => {
 			height: "2px",
 			width: "100%",
 			backgroundColor: "#F5B041",
+		},
+		contactWindow: {
+
+		},
+		contactItemRoot: {
+
 		}
 	}
 })
+
+
+
+const ContactItem = (isLink, link, text, IconName) => {
+	const { classes } = useStyles()
+
+
+
+	return (
+		<motion.div>
+			<IconName />
+
+			{ isLink 	?	<>
+								<motion.a className={ classes.text } variants={ textVariants } href={ link }>{ text }</motion.a>
+								<motion.span className={ classes.underline } variants={ underlineVariants }></motion.span>
+							</>
+						:	<p>{ text }</p>
+			}
+
+
+		</motion.div>
+	)
+}
 
 
 
@@ -76,10 +107,17 @@ const ContactButton = () => {
 
 
 	return (
-		<motion.button className={ classes.root } initial="rest" animate="rest" whileHover="hover" onClick={() => setIsOpen(!isOpen)}>
-			<motion.span className={ classes.text } variants={ textVariants }>{t("contactMe")}</motion.span>
-			<motion.span className={ classes.underline } variants={ underlineVariants }></motion.span>
-		</motion.button>
+		<>
+			<motion.button className={ classes.root } initial="rest" animate="rest" whileHover="hover" onClick={() => setIsOpen(!isOpen)}>
+				<motion.span className={ classes.text } variants={ textVariants }>{t("contactMe")}</motion.span>
+				<motion.span className={ classes.underline } variants={ underlineVariants }></motion.span>
+			</motion.button>
+			<motion.div className={ classes.contactWindow }>
+				<ContactItem isLink={ true } link={ "https://github.com/Altervayne/" } text={t("GitHub")} IconName={"BsGithub"}/>
+				<ContactItem isLink={ true } link={ "https://www.linkedin.com/in/florian-douay/" } text={t("LinkedIn")} IconName={"BsLinkedin"}/>
+				<ContactItem isLink={ false } link={ null } text={ "contact@florian-douay.fr" } IconName={"BsAt"}/>
+			</motion.div>
+		</>
 	)
 }
 
