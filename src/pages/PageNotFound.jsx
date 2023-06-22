@@ -49,6 +49,9 @@ const letterVariant = {
 const useStyles = makeStyles()((theme) => {
 	return {
 		root: {
+            position: "absolute",
+            zIndex: 99,
+
 			display: "flex",
             flexDirection: "column",
 
@@ -75,11 +78,11 @@ const useStyles = makeStyles()((theme) => {
             cursor: "pointer",
             textDecoration: "none",
 
-            color: "#F2F4F8",
+            color: "rgba(255, 255, 255, 1)",
 
             boxShadow: "0px 0px 10px 0px rgba(0, 0, 0, 0.37)",
             background: "linear-gradient(275deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.03))",
-            backdropFilter: "blur(20px)",
+            backdropFilter: "blur(2px)",
 
             borderRadius: "0.5vw",
         },
@@ -128,6 +131,7 @@ const PageNotFound = () => {
                     whileHover={{
                         boxShadow: "0px 0px 10px 0px rgba(0, 0, 0, 0.12)",
                         backgroundColor: "rgba(255, 255, 255, .1)",
+                        color: "rgba(245, 176, 65, 1)"
                     }}
                 >
                         <h2 className={ classes.linkText }>Retourner à la page d'accueil</h2>
