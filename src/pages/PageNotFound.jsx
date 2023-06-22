@@ -1,10 +1,9 @@
 import React from "react"
 import { makeStyles } from "tss-react/mui"
 import { motion } from "framer-motion"
+import { useTranslation } from "react-i18next"
 
 
-
-const notFoundText = "La page que vous cherchez est introuvable"
 
 const numberVariants = {
     hidden: {
@@ -98,6 +97,13 @@ const useStyles = makeStyles()((theme) => {
 
 const PageNotFound = () => {
     const { classes } = useStyles()
+    const { t } = useTranslation()
+
+    const notFoundText = t("pageNotFound")
+
+
+
+
 
     return  <div className={ classes.root }>
                 <motion.h1
@@ -134,7 +140,7 @@ const PageNotFound = () => {
                         color: "rgba(245, 176, 65, 1)"
                     }}
                 >
-                        <h2 className={ classes.linkText }>Retourner à la page d'accueil</h2>
+                        <h2 className={ classes.linkText }>{t("goBack")}</h2>
                 </motion.div>
             </div>
 }
