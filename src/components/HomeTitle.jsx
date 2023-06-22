@@ -48,6 +48,17 @@ const sentenceVariant = {
     }
 }
 
+const transparentSentenceVariant = {
+    hidden: { opacity: 1 },
+    visible: {
+        opacity: .5,
+        transition: {
+            delay: 0.1,
+            staggerChildren: 0.03,
+        }
+    }
+}
+
 
 
 const useStyles = makeStyles()((theme) => {
@@ -129,6 +140,8 @@ const HomeTitle = () => {
 	const { classes } = useStyles()
     const { t } = useTranslation()
 
+    const fullNameStringLength = (t("welcomeNameTitle")+" Florian Douay").split("").length
+
 
 
 	return (
@@ -193,15 +206,78 @@ const HomeTitle = () => {
 
 
             <h2 className={ classes.jobTitle }>
-                { t("welcomeJobTitleStart") && <span>{t("welcomeJobTitleStart")}</span> }
+                <motion.span
+                    variants={ sentenceVariant }
+                    initial="hidden"
+                    animate="visible"
+                >
+                    {t("welcomeJobTitleStart").split("").map((char, index) => {
+                        return (
+                            <motion.span key={ char + "-" + index } variants={ getVariant(false, fullNameStringLength, (index * 0.03 + 0.6)) }>
+                                {char}
+                            </motion.span>
+                        )
+                    })}
+                </motion.span>
 
                 <div className={ classes.jobSpecializationRoot }>
-                    <p className={ classes.jobSpecializationSecondary }>Front-end</p>
-                    <p className={ classes.jobSpecializationMain }>Fullstack</p>
-                    <p className={ classes.jobSpecializationSecondary }>Back-end</p>
+                    <motion.p className={ classes.jobSpecializationSecondary }
+                        variants={ transparentSentenceVariant }
+                        initial="hidden"
+                        animate="visible"
+                    >
+                        {"Front-end".split("").map((char, index) => {
+                            return (
+                                <motion.span key={ char + "-" + index } variants={ getVariant(false, (fullNameStringLength+t("welcomeJobTitleStart").split("").length), (index * 0.03 + 0.6)) }>
+                                    {char}
+                                </motion.span>
+                            )
+                        })}
+                    </motion.p>
+
+                    <motion.p className={ classes.jobSpecializationMain }
+                        variants={ sentenceVariant }
+                        initial="hidden"
+                        animate="visible"
+                    >
+                        {"Fullstack".split("").map((char, index) => {
+                            return (
+                                <motion.span key={ char + "-" + index } variants={ getVariant(false, (fullNameStringLength+t("welcomeJobTitleStart").split("").length), (index * 0.03 + 0.6)) }>
+                                    {char}
+                                </motion.span>
+                            )
+                        })}
+                    </motion.p>
+
+                    <motion.p className={ classes.jobSpecializationSecondary }
+                        variants={ transparentSentenceVariant}
+                        initial="hidden"
+                        animate="visible"
+                    >
+                        {"Back-end".split("").map((char, index) => {
+                            return (
+                                <motion.span key={ char + "-" + index } variants={ getVariant(false, (fullNameStringLength+t("welcomeJobTitleStart").split("").length), (index * 0.03 + 0.6)) }>
+                                    {char}
+                                </motion.span>
+                            )
+                        })}
+                    </motion.p>
+
                 </div>
 
-                { t("welcomeJobTitleEnd") && <span>{t("welcomeJobTitleEnd")}</span> }
+                <motion.span
+                    variants={ sentenceVariant }
+                    initial="hidden"
+                    animate="visible"
+                >
+                    {t("welcomeJobTitleEnd").split("").map((char, index) => {
+                        return (
+                            <motion.span key={ char + "-" + index } variants={ getVariant(false, (fullNameStringLength+t("welcomeJobTitleStart").split("").length+9), (index * 0.03 + 0.6)) }>
+                                {char}
+                            </motion.span>
+                        )
+                    })}
+                </motion.span>
             </h2>
             
         </div>
