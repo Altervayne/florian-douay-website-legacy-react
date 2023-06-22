@@ -9,5 +9,7 @@
     "welcomeJobTitleStart": "Je suis un développeur web",
     "welcomeJobTitleEnd": "",
 
+    "pageNotFound": "La page que vous cherchez est introuvable",
+    "goBack": "Retourner à la page d'accueil",
     "copyright": "Copyright © 2023 Florian Douay. Tous droits réservés."
 }
