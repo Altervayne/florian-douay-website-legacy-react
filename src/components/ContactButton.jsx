@@ -198,7 +198,7 @@ const ContactButton = () => {
 			>
 				<ContactItem isLink={ true } link={ "https://github.com/Altervayne/" } text={t("GitHub")} icon={"github"}/>
 				<ContactItem isLink={ true } link={ "https://www.linkedin.com/in/florian-douay/" } text={t("LinkedIn")} icon={"linkedin"}/>
-				<ContactItem isLink={ false } link={ null } text={ "contact@florian-douay.fr" } icon={"email"}/>
+				<ContactItem isLink={ true } link={ "mailto:contact@florian-douay.fr" } text={ "contact@florian-douay.fr" } icon={"email"}/>
 			</motion.div>
 		</>
 	)
