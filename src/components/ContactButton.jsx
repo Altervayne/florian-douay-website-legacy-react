@@ -176,22 +176,22 @@ const ContactButton = () => {
 			</motion.button>
 			<motion.div className={ classes.contactWindow }
 						initial={{
+							opacity: 0,
+							visibility: "hidden",
+							transition: {
+								duration: 0.3,
+								visibility: {
+									delay: 0.3
+								}	
+							}
+						}}
+						animate={{
 							opacity: isOpen ? 1 : 0,
 							visibility: isOpen ? "visible" : "hidden",
 							transition: {
 								duration: 0.3,
 								visibility: {
 									delay: isOpen ? 0 : 0.3
-								}	
-							}
-						}}
-						animate={{
-							opacity: !isOpen ? 1 : 0,
-							visibility: !isOpen ? "visible" : "hidden",
-							transition: {
-								duration: 0.3,
-								visibility: {
-									delay: !isOpen ? 0 : 0.3
 								}
 							}
 						}}
