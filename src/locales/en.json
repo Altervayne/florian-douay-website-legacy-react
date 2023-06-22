@@ -9,5 +9,7 @@
     "welcomeJobTitleStart": "I am a",
     "welcomeJobTitleEnd": "web developer",
 
+    "pageNotFound": "The page you are looking for could not be found",
+    "goBack": "Return to the home page",
     "copyright": "Copyright © 2023 Florian Douay. All rights reserved."
 }
