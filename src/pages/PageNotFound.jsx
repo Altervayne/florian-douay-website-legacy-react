@@ -2,6 +2,7 @@ import React from "react"
 import { makeStyles } from "tss-react/mui"
 import { motion } from "framer-motion"
 import { useTranslation } from "react-i18next"
+import { useNavigate } from "react-router"
 
 
 
@@ -97,6 +98,7 @@ const useStyles = makeStyles()((theme) => {
 
 const PageNotFound = () => {
     const { classes } = useStyles()
+    const navigate = useNavigate()
     const { t } = useTranslation()
 
     const notFoundText = t("pageNotFound")
@@ -132,7 +134,7 @@ const PageNotFound = () => {
                 </motion.h2>
 
                 <motion.div 
-                    onClick={() => ( window.location.href="/" )}
+                    onClick={() => navigate("/")}
                     className={ classes.linkContainer }
                     whileHover={{
                         boxShadow: "0px 0px 10px 0px rgba(0, 0, 0, 0.12)",
