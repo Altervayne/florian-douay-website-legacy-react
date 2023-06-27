@@ -18,6 +18,16 @@ const LocaleButton = () => {
 	const { classes } = useStyles()
 	const { t } = useTranslation()
 
+	const [currentLanguage, changeCurrentLanguage] = useState(t.language)
+	function changeLanguage() {
+		if(currentLanguage === "en") {
+			t.changeLanguage("fr")
+		} else {
+			t.changeLanguage("en")
+		}
+
+		changeCurrentLanguage(t.language)
+	}
 
 
 	return (
