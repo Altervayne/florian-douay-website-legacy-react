@@ -191,7 +191,7 @@ const HomeTitle = () => {
                         animate="visible"
                     >
 
-                        {" Florian Douay".split("").map((char, index) => {
+                        {t("myName").split("").map((char, index) => {
                             return (
                                 <motion.span key={ char + "-" + index } variants={ getVariant(false, (t("welcomeNameTitle").split("").length), (index * 0.03 + 0.3)) }>
                                     {char}
@@ -226,7 +226,7 @@ const HomeTitle = () => {
                         initial="hidden"
                         animate="visible"
                     >
-                        {"Front-end".split("").map((char, index) => {
+                        {t("frontend").split("").map((char, index) => {
                             return (
                                 <motion.span key={ char + "-" + index } variants={ getVariant(false, (fullNameStringLength+t("welcomeJobTitleStart").split("").length), (index * 0.03 + 0.6)) }>
                                     {char}
@@ -240,7 +240,7 @@ const HomeTitle = () => {
                         initial="hidden"
                         animate="visible"
                     >
-                        {"Fullstack".split("").map((char, index) => {
+                        {t("fullstack").split("").map((char, index) => {
                             return (
                                 <motion.span key={ char + "-" + index } variants={ getVariant(false, (fullNameStringLength+t("welcomeJobTitleStart").split("").length), (index * 0.03 + 0.6)) }>
                                     {char}
@@ -254,7 +254,7 @@ const HomeTitle = () => {
                         initial="hidden"
                         animate="visible"
                     >
-                        {"Back-end".split("").map((char, index) => {
+                        {t("backend").split("").map((char, index) => {
                             return (
                                 <motion.span key={ char + "-" + index } variants={ getVariant(false, (fullNameStringLength+t("welcomeJobTitleStart").split("").length), (index * 0.03 + 0.6)) }>
                                     {char}
