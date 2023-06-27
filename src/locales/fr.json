@@ -1,9 +1,15 @@
 {
-    "navHome": "Page d'Accueil",
+    "myName": " Florian Douay",
+
+    "frontend": "Front-end",
+    "fullstack": "Fullstack",
+    "backend": "Back-end",
+
+    "navHome": "Accueil",
     "navRésumé": "CV",
     "navPortfolio": "Portfolio",
 
-    "contactMe": "Contactez moi!",
+    "contactMe": "Contactez moi !",
 
     "welcomeNameTitle": "Bonjour, je m'appelle",
     "welcomeJobTitleStart": "Je suis un développeur web",

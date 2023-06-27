@@ -1,4 +1,10 @@
 {
+    "myName": " Florian Douay",
+
+    "frontend": "Front-end",
+    "fullstack": "Fullstack",
+    "backend": "Back-end",
+
     "navHome": "Home",
     "navRésumé": "Résumé",
     "navPortfolio": "Portfolio",
