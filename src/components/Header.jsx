@@ -3,6 +3,7 @@ import { makeStyles } from "tss-react/mui"
 
 import NavButton from "./NavButton"
 import ContactButton from "./ContactButton"
+import LocaleButton from "./LocaleButton"
 
 
 
@@ -62,12 +63,14 @@ const Header = () => {
 			<h1 className={ classes.name }>Florian DOUAY</h1>
 
 			<nav className={ classes.nav }>
+				<LocaleButton />
+
 				<NavButton label="navHome" link="/" />
 				<NavButton label="navRésumé" link="/cv" />
 				<NavButton label="navPortfolio" link="/portfolio" />
 
 				<ContactButton />
-
+				
 			</nav>
 		</header>
 	)
