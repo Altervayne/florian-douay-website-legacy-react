@@ -54,7 +54,7 @@ const useStyles = makeStyles()((theme) => {
 
 
 
-const Header = () => {
+const Header = ({ languageChangeKey, changeKey }) => {
 	const { classes } = useStyles()
 
 
@@ -63,7 +63,7 @@ const Header = () => {
 			<h1 className={ classes.name }>Florian DOUAY</h1>
 
 			<nav className={ classes.nav }>
-				<LocaleButton />
+				<LocaleButton languageChangeKey={ languageChangeKey } changeKey={ changeKey }/>
 
 				<NavButton label="navHome" link="/" />
 				<NavButton label="navRésumé" link="/cv" />
