@@ -136,7 +136,7 @@ const useStyles = makeStyles()((theme) => {
 
 
 
-const HomeTitle = () => {
+const HomeTitle = ({ languageChangeKey }) => {
 	const { classes } = useStyles()
     const { t } = useTranslation()
 
@@ -145,7 +145,7 @@ const HomeTitle = () => {
 
 
 	return (
-		<div className={ classes.root }>
+		<div className={ classes.root } key={ languageChangeKey }>
 
             <h2 className={ classes.nameTitle }>
 
