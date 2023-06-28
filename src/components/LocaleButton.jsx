@@ -14,7 +14,7 @@ const useStyles = makeStyles()((theme) => {
 
 
 
-const LocaleButton = () => {
+const LocaleButton = ({ languageChangeKey, changeKey }) => {
 	const { classes } = useStyles()
 	const { i18n, t } = useTranslation()
 
@@ -29,6 +29,7 @@ const LocaleButton = () => {
 		}
 
 		changeCurrentLanguage(i18n.language)
+		changeKey(languageChangeKey + 1)
 	}
 
 

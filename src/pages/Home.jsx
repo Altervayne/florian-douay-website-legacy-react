@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import { makeStyles } from "tss-react/mui"
 /* import { useNavigate } from "react-router" */
 
@@ -26,13 +26,13 @@ const useStyles = makeStyles()((theme) => {
 
 const Home = () => {
     const { classes } = useStyles()
-	/* const navigate = useNavigate() */
+	const [languageChangeKey, changeKey] = useState(0)
 
 
 
     return 	<div className={ classes.root }>
-				<Header />
-				<HomeTitle />
+				<Header languageChangeKey={ languageChangeKey } changeKey={ changeKey } />
+				<HomeTitle languageChangeKey={ languageChangeKey } />
 				<Footer />
 			</div>
 }
