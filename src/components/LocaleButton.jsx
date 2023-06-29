@@ -9,6 +9,12 @@ const useStyles = makeStyles()((theme) => {
 	return {
 		root: {
 		},
+		buttonText: {
+
+		},
+		selector: {
+			
+		}
 	}
 })
 
@@ -34,8 +40,10 @@ const LocaleButton = ({ languageChangeKey, changeKey }) => {
 
 
 	return (
-		<button className={ classes.root } onClick={changeLanguage}>
-			{currentLanguage}
+		<button className={ classes.root } onClick={ changeLanguage }>
+			<p className={ classes.buttonText }>EN</p>
+			<p className={ classes.buttonText }>FR</p>
+			<div className={ classes.selector }></div>
 		</button>
 	)
 }
