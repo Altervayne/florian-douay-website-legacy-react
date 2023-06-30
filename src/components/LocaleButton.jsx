@@ -24,6 +24,8 @@ const useStyles = makeStyles()((theme) => {
 			backgroundColor: "rgba(0, 0, 0, 0.2)",
 			border: "none",
 			ouline: "none",
+
+			cursor: "pointer",
 		},
 		buttonText: {
 			padding: 0,
