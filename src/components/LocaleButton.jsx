@@ -8,12 +8,25 @@ import { useTranslation } from 'react-i18next'
 const useStyles = makeStyles()((theme) => {
 	return {
 		root: {
+			position: "relative",
+
+			display: "flex",
+			justifyContent: "space-around",
+
+			borderRadius: theme.spacing(2),
+
+			width: theme.spacing(8),
+			padding: theme.spacing(0.5),
+
+			border: "none",
+			ouline: "none",
 		},
 		buttonText: {
-
+			padding: theme.spacing(0.4),
+			margin: 0,
 		},
 		selector: {
-			
+			position: "absolute",
 		}
 	}
 })
