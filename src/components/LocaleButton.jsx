@@ -8,12 +8,43 @@ import { useTranslation } from 'react-i18next'
 const useStyles = makeStyles()((theme) => {
 	return {
 		root: {
+			position: "relative",
+
+			display: "flex",
+			justifyContent: "space-between",
+			alignItems: "center",
+
+			borderRadius: theme.spacing(2),
+
+			width: theme.spacing(8),
+			padding: theme.spacing(1.1),
+			paddingLeft: theme.spacing(1),
+			paddingRight: theme.spacing(1),
+
+			backgroundColor: "rgba(0, 0, 0, 0.2)",
+			border: "none",
+			ouline: "none",
+
+			cursor: "pointer",
 		},
 		buttonText: {
+			padding: 0,
+			margin: 0,
 
+			fontSize: theme.typography.pxToRem(14),
+			fontWeight: "600",
+
+			color: "white",
 		},
 		selector: {
-			
+			position: "absolute",
+			left: theme.spacing(0.5),
+
+			width: theme.spacing(3.5),
+			height: theme.spacing(3.5),
+			borderRadius: theme.spacing(1.75),
+
+			backgroundColor: "rgba(255, 255, 255, 0.4)"
 		}
 	}
 })
