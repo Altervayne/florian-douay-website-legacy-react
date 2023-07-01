@@ -38,7 +38,6 @@ const useStyles = makeStyles()((theme) => {
 		},
 		selector: {
 			position: "absolute",
-			left: theme.spacing(0.5),
 
 			width: theme.spacing(3.5),
 			height: theme.spacing(3.5),
@@ -70,11 +69,28 @@ const LocaleButton = ({ languageChangeKey, changeKey }) => {
 	}
 
 
+
+	const switchVariants = {
+		englishSelected: {
+			left: "4px",
+			right: "32px"
+		},
+		frenchSelected: {
+			right: "4px",
+			left: "33px"
+		}
+	}
+
+
+
 	return (
 		<button className={ classes.root } onClick={ changeLanguage }>
 			<p className={ classes.buttonText }>EN</p>
 			<p className={ classes.buttonText }>FR</p>
-			<div className={ classes.selector }></div>
+			<motion.div className={ classes.selector }
+						variants={ switchVariants }
+						animate={ currentLanguage === "en" ? "englishSelected" : "frenchSelected" }
+			></motion.div>
 		</button>
 	)
 }
