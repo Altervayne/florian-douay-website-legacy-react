@@ -56,7 +56,7 @@ const useStyles = makeStyles()((theme) => {
 
 const LocaleButton = ({ languageChangeKey, changeKey }) => {
 	const { classes } = useStyles()
-	const { i18n, t } = useTranslation()
+	const { i18n } = useTranslation()
 
 	const [currentLanguage, changeCurrentLanguage] = useState(i18n.language)
 	function changeLanguage(event) {
@@ -77,11 +77,11 @@ const LocaleButton = ({ languageChangeKey, changeKey }) => {
 	const switchVariants = {
 		englishSelected: {
 			left: "4px",
-			right: "33px",
+			right: "32px",
 			transition: { duration: 0.3 }
 		},
 		frenchSelected: {
-			left: "33px",
+			left: "32px",
 			right: "4px",
 			transition: { duration: 0.3 }
 		}
