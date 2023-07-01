@@ -9,6 +9,7 @@ const useStyles = makeStyles()((theme) => {
 	return {
 		root: {
 			position: "relative",
+			zIndex: 1,
 
 			display: "flex",
 			justifyContent: "space-between",
@@ -31,6 +32,8 @@ const useStyles = makeStyles()((theme) => {
 			padding: 0,
 			margin: 0,
 
+			zIndex: 3,
+
 			fontSize: theme.typography.pxToRem(14),
 			fontWeight: "600",
 
@@ -38,6 +41,7 @@ const useStyles = makeStyles()((theme) => {
 		},
 		selector: {
 			position: "absolute",
+			zIndex: 2,
 
 			width: theme.spacing(3.5),
 			height: theme.spacing(3.5),
@@ -73,11 +77,24 @@ const LocaleButton = ({ languageChangeKey, changeKey }) => {
 	const switchVariants = {
 		englishSelected: {
 			left: "4px",
-			right: "32px"
+			right: "33px",
+			transition: { duration: 0.3 }
 		},
 		frenchSelected: {
+			left: "33px",
 			right: "4px",
-			left: "33px"
+			transition: { duration: 0.3 }
+		}
+	}
+
+	const switchTextVariants = {
+		selected: {
+			color: "rgba(245, 176, 65, 1)",
+			transition: { duration: 0.3 }
+		},
+		notSelected: {
+			color: "rgba(255, 255, 255, 1)",
+			transition: { duration: 0.3 }
 		}
 	}
 
@@ -85,8 +102,20 @@ const LocaleButton = ({ languageChangeKey, changeKey }) => {
 
 	return (
 		<button className={ classes.root } onClick={ changeLanguage }>
-			<p className={ classes.buttonText }>EN</p>
-			<p className={ classes.buttonText }>FR</p>
+			<motion.p 	className={ classes.buttonText }
+						variants={ switchTextVariants }
+						animate={ currentLanguage === "en" ? "selected" : "notSelected" }
+						>
+							EN
+			</motion.p>
+
+			<motion.p 	className={ classes.buttonText }
+						variants={ switchTextVariants }
+						animate={ currentLanguage === "fr" ? "selected" : "notSelected" }
+						>
+							FR
+			</motion.p>
+
 			<motion.div className={ classes.selector }
 						variants={ switchVariants }
 						animate={ currentLanguage === "en" ? "englishSelected" : "frenchSelected" }
