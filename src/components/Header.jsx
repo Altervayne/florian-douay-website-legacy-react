@@ -63,14 +63,13 @@ const Header = ({ languageChangeKey, changeKey }) => {
 			<h1 className={ classes.name }>Florian DOUAY</h1>
 
 			<nav className={ classes.nav }>
-				<LocaleButton languageChangeKey={ languageChangeKey } changeKey={ changeKey }/>
-
 				<NavButton label="navHome" link="/" />
 				<NavButton label="navRésumé" link="/cv" />
 				<NavButton label="navPortfolio" link="/portfolio" />
 
 				<ContactButton />
-				
+
+				<LocaleButton languageChangeKey={ languageChangeKey } changeKey={ changeKey }/>
 			</nav>
 		</header>
 	)
