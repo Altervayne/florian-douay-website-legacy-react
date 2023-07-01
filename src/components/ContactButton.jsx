@@ -66,7 +66,7 @@ const useStyles = makeStyles()((theme) => {
 		},
 		contactWindow: {
 			position: "fixed",
-			right: theme.spacing(2),
+			right: theme.spacing(16),
 
 
 			borderRadius: theme.spacing(2),
