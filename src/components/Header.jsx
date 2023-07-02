@@ -1,5 +1,6 @@
 import React from "react"
 import { makeStyles } from "tss-react/mui"
+import { useMediaQuery, useTheme } from "@mui/material"
 
 import NavButton from "./NavButton"
 import ContactButton from "./ContactButton"
@@ -56,6 +57,10 @@ const useStyles = makeStyles()((theme) => {
 
 const Header = ({ languageChangeKey, changeKey }) => {
 	const { classes } = useStyles()
+	const theme = useTheme()
+	
+
+	const isPhoneScreen = useMediaQuery(theme.breakpoints.down('sm'))
 
 
 	return (
