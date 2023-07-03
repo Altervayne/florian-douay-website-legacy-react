@@ -40,6 +40,12 @@ const useStyles = makeStyles()((theme) => {
 				height: theme.spacing(16),
 			}
 		},
+		titleAndLocale: {
+			display: "flex",
+			justifyContent: "space-between",
+			alignItems: "center",
+			width: "100%",
+		},
 		name: {
 			alignSelf: "center",
 			color: "white",
@@ -55,16 +61,31 @@ const useStyles = makeStyles()((theme) => {
 
 
 
-const Header = ({ languageChangeKey, changeKey }) => {
+const HeaderContentPhone = ({ languageChangeKey, changeKey }) => {
 	const { classes } = useStyles()
-	const theme = useTheme()
-	
 
-	const isPhoneScreen = useMediaQuery(theme.breakpoints.down('sm'))
 
 
 	return (
-		<header className={ classes.root }>
+		<>
+			<div className={ classes.titleAndLocale }>
+				<h1 className={ classes.name }>Florian DOUAY</h1>
+				<LocaleButton languageChangeKey={ languageChangeKey } changeKey={ changeKey }/>
+			</div>
+			
+
+			<ContactButton />
+		</>
+	)
+}
+
+const HeaderContentNormal = ({ languageChangeKey, changeKey }) => {
+	const { classes } = useStyles()
+
+
+
+	return (
+		<>
 			<h1 className={ classes.name }>Florian DOUAY</h1>
 
 			<nav className={ classes.nav }>
@@ -76,6 +97,25 @@ const Header = ({ languageChangeKey, changeKey }) => {
 
 				<LocaleButton languageChangeKey={ languageChangeKey } changeKey={ changeKey }/>
 			</nav>
+		</>
+	)
+}
+
+
+
+const Header = ({ languageChangeKey, changeKey }) => {
+	const { classes } = useStyles()
+	const theme = useTheme()
+	
+
+	const isPhoneScreen = useMediaQuery(theme.breakpoints.down('sm'))
+
+
+	return (
+		<header className={ classes.root }>
+			{ isPhoneScreen	? <HeaderContentPhone languageChangeKey={ languageChangeKey } changeKey={ changeKey }/>
+							: <HeaderContentNormal languageChangeKey={ languageChangeKey } changeKey={ changeKey }/>
+			}
 		</header>
 	)
 }
