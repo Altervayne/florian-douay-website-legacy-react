@@ -50,6 +50,10 @@ const useStyles = makeStyles()((theme) => {
 			border: "none",
 
 			cursor: "pointer",
+
+			[theme.breakpoints.down('sm')]: {
+				flexGrow: "3",
+			},
 		},
 		text: {
 			margin: 0,

@@ -25,7 +25,7 @@ const useStyles = makeStyles()((theme) => {
             backdropFilter: "blur(2px)",
 
 			[theme.breakpoints.down('sm')]: {
-				padding: "0 10vw",
+				padding: "0 5vw",
 
 				height: theme.spacing(14),	
 			},
@@ -40,25 +40,19 @@ const useStyles = makeStyles()((theme) => {
 				height: theme.spacing(16),
 			}
 		},
-		titleAndLocale: {
-			display: "flex",
-			justifyContent: "space-between",
-			alignItems: "center",
-			width: "50%",
-		},
 		name: {
 			alignSelf: "center",
 			color: "white",
 
 
-
 			[theme.breakpoints.down('sm')]: {
-				width: "50%",
-				fontSize: theme.typography.pxToRem(20)
+				flexGrow: "1",
+				width: "15%",
+
+				fontSize: theme.typography.pxToRem(20),
 			},
 			[theme.breakpoints.up('sm')]: {
-				width: "auto",
-				fontSize: theme.typography.pxToRem(24)
+				fontSize: theme.typography.pxToRem(24),
 			},
 		},
 		nav: {

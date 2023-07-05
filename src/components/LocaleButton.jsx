@@ -27,6 +27,10 @@ const useStyles = makeStyles()((theme) => {
 			ouline: "none",
 
 			cursor: "pointer",
+
+			[theme.breakpoints.down('sm')]: {
+				flexGrow: "1",
+			},
 		},
 		buttonText: {
 			padding: 0,
