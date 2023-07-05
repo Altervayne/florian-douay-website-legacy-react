@@ -44,13 +44,22 @@ const useStyles = makeStyles()((theme) => {
 			display: "flex",
 			justifyContent: "space-between",
 			alignItems: "center",
-			width: "100%",
+			width: "50%",
 		},
 		name: {
 			alignSelf: "center",
 			color: "white",
 
-			fontSize: theme.typography.pxToRem(24)
+
+
+			[theme.breakpoints.down('sm')]: {
+				width: "50%",
+				fontSize: theme.typography.pxToRem(20)
+			},
+			[theme.breakpoints.up('sm')]: {
+				width: "auto",
+				fontSize: theme.typography.pxToRem(24)
+			},
 		},
 		nav: {
 			display: "flex",
@@ -58,48 +67,6 @@ const useStyles = makeStyles()((theme) => {
 		},
 	}
 })
-
-
-
-const HeaderContentPhone = ({ languageChangeKey, changeKey }) => {
-	const { classes } = useStyles()
-
-
-
-	return (
-		<>
-			<div className={ classes.titleAndLocale }>
-				<h1 className={ classes.name }>Florian DOUAY</h1>
-				<LocaleButton languageChangeKey={ languageChangeKey } changeKey={ changeKey }/>
-			</div>
-			
-
-			<ContactButton />
-		</>
-	)
-}
-
-const HeaderContentNormal = ({ languageChangeKey, changeKey }) => {
-	const { classes } = useStyles()
-
-
-
-	return (
-		<>
-			<h1 className={ classes.name }>Florian DOUAY</h1>
-
-			<nav className={ classes.nav }>
-				<NavButton label="navHome" link="/" />
-				<NavButton label="navRésumé" link="/cv" />
-				<NavButton label="navPortfolio" link="/portfolio" />
-
-				<ContactButton />
-
-				<LocaleButton languageChangeKey={ languageChangeKey } changeKey={ changeKey }/>
-			</nav>
-		</>
-	)
-}
 
 
 
@@ -113,9 +80,19 @@ const Header = ({ languageChangeKey, changeKey }) => {
 
 	return (
 		<header className={ classes.root }>
-			{ isPhoneScreen	? <HeaderContentPhone languageChangeKey={ languageChangeKey } changeKey={ changeKey }/>
-							: <HeaderContentNormal languageChangeKey={ languageChangeKey } changeKey={ changeKey }/>
-			}
+			<h1 className={ classes.name }>Florian DOUAY</h1>
+
+			<nav className={ classes.nav }>
+				{ !isPhoneScreen && <>
+										<NavButton label="navHome" link="/" />
+										<NavButton label="navRésumé" link="/cv" />
+										<NavButton label="navPortfolio" link="/portfolio" />
+									</> }
+
+				<ContactButton />
+
+				<LocaleButton languageChangeKey={ languageChangeKey } changeKey={ changeKey }/>
+			</nav>
 		</header>
 	)
 }

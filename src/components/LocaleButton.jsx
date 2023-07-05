@@ -77,12 +77,12 @@ const LocaleButton = ({ languageChangeKey, changeKey }) => {
 	const switchVariants = {
 		englishSelected: {
 			left: "4px",
-			right: "32px",
+			right: "auto",
 			transition: { duration: 0.3 }
 		},
 		frenchSelected: {
-			left: "32px",
 			right: "4px",
+			left: "auto",
 			transition: { duration: 0.3 }
 		}
 	}
